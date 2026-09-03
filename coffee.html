@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Order coffee from Mr. Coffee, the deeply judgmental café counter inside OSS Spy Jail."
+    />
+    <meta name="theme-color" content="#321c17" />
+    <title>Mr. Coffee — OSS Spy Jail</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/coffee.css" />
+    <script src="js/app.js" defer></script>
+    <script src="js/coffee.js" defer></script>
+  </head>
+  <body class="coffee-body">
+    <a class="skip-link" href="#main-content">Skip to the counter</a>
+
+    <header class="cafe-header">
+      <a class="cafe-brand" href="coffee.html" aria-label="Mr. Coffee home">
+        <span class="cafe-monogram" aria-hidden="true">MC</span>
+        <span>
+          <strong>Mr. Coffee</strong>
+          <small>Spy Jail café &amp; morale containment</small>
+        </span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+
+      <nav id="site-nav" class="site-nav cafe-nav" aria-label="Primary navigation">
+        <a href="index.html">Prisoners</a>
+        <a class="active" href="coffee.html">Coffee</a>
+        <a href="reviews.html">Reviews &amp; feedback</a>
+      </nav>
+    </header>
+
+    <main id="main-content" class="coffee-main">
+      <section class="cafe-hero" aria-labelledby="coffee-heading">
+        <div class="counter-column">
+          <div class="cafe-intro">
+            <p class="cafe-kicker"><span aria-hidden="true">✦</span> Cell Block C · Counter open</p>
+            <h1 id="coffee-heading">Coffee break.<br /><em>Jail Dont.</em></h1>
+            <p class="cafe-lede">
+              Tell Mr. Coffee what you want, he will take care of the rest
+            </p>
+          </div>
+
+          <section class="order-station" aria-labelledby="order-heading">
+            <div class="station-heading">
+              <div>
+                <span>COUNTER No. 04</span>
+                <h2 id="order-heading">Place an order</h2>
+              </div>
+              <p>All drinks cost $7 or one dabloon.</p>
+            </div>
+
+            <form id="coffee-form" class="order-form" autocomplete="off" novalidate>
+              <label for="coffee-input">What are you having?</label>
+              <div class="order-entry">
+                <input
+                  id="coffee-input"
+                  name="coffee"
+                  type="text"
+                  maxlength="80"
+                  placeholder="Try: cappuccino, black coffee, or help"
+                  aria-describedby="coffee-hint"
+                />
+                <button type="submit">Ask Mr. Coffee</button>
+              </div>
+              <p id="coffee-hint">Type <kbd>help</kbd> if you arent rich enough to know how to do this</p>
+            </form>
+
+            <section id="order-response" class="order-response" aria-labelledby="response-heading">
+              <div class="response-meta">
+                <span id="response-status">COUNTER OPEN</span>
+                <span id="order-number">ORDER —</span>
+              </div>
+              <div id="response-body" class="response-body" aria-live="polite">
+                <p id="response-kicker" class="response-kicker">NO ORDER PENDING</p>
+                <h2 id="response-heading" tabindex="-1">Mr. Coffee is listening.</h2>
+                <p id="response-message">
+                  Like anubis balancing your heart against a feather, he judges the worth of your soul
+                </p>
+                <p id="response-note" class="response-note">Choose Wisely</p>
+                <div id="coffee-suggestions" class="suggestion-list" hidden></div>
+              </div>
+            </section>
+          </section>
+        </div>
+
+        <aside class="cafe-sidebar" aria-label="Café information">
+          <figure class="barista-card">
+            <div class="portrait-shell">
+              <img src="assets/duck.webp" alt="Mr. Coffee, the barista on duty" />
+              <span>EMPLOYEE OF EVERY MONTH</span>
+            </div>
+            <figcaption>
+              <span>BARISTA ON DUTY</span>
+              <strong>Mr. Coffee</strong>
+              <small>You can trust him.</small>
+            </figcaption>
+          </figure>
+
+          <section class="house-card" aria-labelledby="house-rules-heading">
+            <p class="card-label">A note from management</p>
+            <h2 id="house-rules-heading">House etiquette</h2>
+            <ul>
+              <li>Smooth Jazz only.</li>
+              <li>Must be drippy.</li>
+              <li>No larping</li>
+            </ul>
+            <p class="hours"><span>Hours</span> Open 24/7, except when closed.</p>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <div
+      id="explosion-overlay"
+      class="explosion-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Explosion"
+      aria-hidden="true"
+      hidden
+    >
+      <video id="explosion-video" preload="auto" playsinline aria-hidden="true">
+        <source src="assets/explosion.mp4" type="video/mp4" />
+      </video>
+      <button id="explosion-skip" class="explosion-skip" type="button">Skip</button>
+    </div>
+
+    <footer class="cafe-footer">
+      <p>Mr. Coffee at OSS Spy Jail <span>·</span> Established immediately after the budget hearing</p>
+      <p>Tips accepted in unmarked bills.</p>
+    </footer>
+  </body>
+</html>

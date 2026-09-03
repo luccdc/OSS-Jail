@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Browse active OSS Spy Jail detainee files and facility records."
+    />
+    <meta name="theme-color" content="#090d14" />
+    <title>OSS Spy Jail — Prisoner Directory</title>
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/prisoners.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="OSS Spy Jail home">
+        <span class="brand-mark" aria-hidden="true">OSS</span>
+        <span>
+          <strong>Spy Jail</strong>
+          <small>Its like normal Jail but owned by spies</small>
+        </span>
+      </a>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch color theme">
+          <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle-label">Night Ops</span>
+        </button>
+
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Open navigation</span>
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <a class="active" href="index.html">Prisoners</a>
+          <a href="coffee.html">Coffee</a>
+          <a href="reviews.html">Reviews & feedback</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="intro" aria-labelledby="directory-heading">
+        <div class="eyebrow"><span class="pulse"></span> Mr. Coffee online <span class="eyebrow-code">NODE // 04</span></div>
+        <h1 id="directory-heading">Maximum Security. <em>Minimum Oversight.</em></h1>
+        <p>
+          Your all-in-one platform to search prisoners, order coffee, and release the gorillas!
+        </p>
+
+        <div class="hero-status" aria-label="Facility status">
+          <span><strong>04</strong> detainees contained</span>
+          <span><strong>-20%</strong> Equity year-on-year</span>
+          <span><strong>12</strong> gorillas at large</span>
+        </div>
+
+        <div class="directory-tools">
+          <label class="search-field" for="prisoner-search">
+            <span aria-hidden="true">⌕</span>
+            <span class="sr-only">Search prisoners</span>
+            <input
+              id="prisoner-search"
+              type="search"
+              placeholder="Search name, alias, or internet history…"
+              autocomplete="off"
+            />
+          </label>
+          <p class="record-count" aria-live="polite"><strong id="visible-count">0</strong> active files</p>
+        </div>
+      </section>
+
+      <section class="directory-section" aria-label="Prisoner directory">
+        <div id="prisoner-grid" class="prisoner-grid"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <span aria-hidden="true">◌</span>
+          <h2>No files match that search.</h2>
+          <p>Try a different name, alias, or crime.</p>
+        </div>
+      </section>
+
+      <section class="notice-strip" aria-label="Security notice">
+        <span class="notice-icon" aria-hidden="true">!</span>
+        <p><strong>Agent notice:</strong> Do not tap the glass. The gorillas might hear.</p>
+        <span class="classification">LEVEL 4</span>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>OSS INTERNAL NETWORK <span>•</span> Spy Jail Records Division</p>
+      <p>Authorization code: <strong>BING-US</strong></p>
+    </footer>
+  </body>
+</html>

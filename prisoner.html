@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Placeholder1" />
+    <meta name="theme-color" content="#090d14" />
+    <title>Prisoner File — OSS Spy Jail</title>
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/prisoners.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/prisoner-page.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Placeholder2">
+        <span class="brand-mark" aria-hidden="true">SUS</span>
+        <span>
+          <strong>Spy Jail</strong>
+          <small>Yup this still says the same thing</small>
+        </span>
+      </a>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch color theme">
+          <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle-label">Night Ops</span>
+        </button>
+
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Open navigation</span>
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <a class="active" href="index.html">Prisoners</a>
+          <a href="coffee.html">Coffee</a>
+          <a href="reviews.html">Reviews & feedback</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="record-page">
+      <a class="back-link" href="index.html"><span aria-hidden="true">←</span> I wanna leave</a>
+
+      <div id="record-loading" class="record-loading" aria-live="polite">Decrypting file…</div>
+
+      <article id="prisoner-record" class="prisoner-record" hidden>
+        <div class="record-image-panel">
+          <div class="mugshot-frame">
+            <div class="mugshot-label">
+              <span>OSS CUSTODY</span>
+              <strong id="record-number">FILE 000</strong>
+            </div>
+            <img id="prisoner-image" src="assets/duck.webp" alt="" />
+            <div class="height-lines" aria-hidden="true">
+              <span>6′</span><span>5′</span><span>4′</span><span>3′</span>
+            </div>
+          </div>
+          <div class="custody-stamp">IN CUSTODY</div>
+        </div>
+
+        <div class="record-details">
+          <div class="record-kicker">
+            <span id="prisoner-classification">CLASSIFIED</span>
+            <span id="prisoner-status" class="status-dot">ACTIVE</span>
+          </div>
+          <h1 id="prisoner-name">Unknown detainee</h1>
+          <p class="alias">Known alias: <strong id="prisoner-alias">—</strong></p>
+
+          <div class="threat-block">
+            <div>
+              <span>Threat rating</span>
+              <strong id="threat-label">Unknown</strong>
+            </div>
+            <div class="threat-meter" aria-label="Threat rating">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <dl class="record-facts">
+            <div>
+              <dt>Detained</dt>
+              <dd id="prisoner-detained">—</dd>
+            </div>
+            <div>
+              <dt>Primary offense</dt>
+              <dd id="prisoner-offense">—</dd>
+            </div>
+          </dl>
+
+          <section class="case-notes" aria-labelledby="case-notes-heading">
+            <div class="section-label">
+              <span>01</span>
+              <h2 id="case-notes-heading">Case notes</h2>
+            </div>
+            <p id="prisoner-summary"></p>
+          </section>
+
+          <section class="traits-section" aria-labelledby="traits-heading">
+            <div class="section-label">
+              <span>02</span>
+              <h2 id="traits-heading">Known specialties</h2>
+            </div>
+            <ul id="prisoner-traits" class="trait-list"></ul>
+          </section>
+        </div>
+      </article>
+
+      <section id="missing-record" class="missing-record" hidden>
+        <p class="error-code">ERROR 404 // FILE SCRAMBLED</p>
+        <h1>This prisoner file does not exist.</h1>
+        <p>The gorillas probably got them</p>
+        <a class="button" href="index.html">Return to the directory</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>OSS INTERNAL NETWORK <span>•</span> Spy Jail Records Division</p>
+      <p>Authorization code: <strong>Boing-IS</strong></p>
+    </footer>
+  </body>
+</html>

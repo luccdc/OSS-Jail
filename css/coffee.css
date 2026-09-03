@@ -1,0 +1,862 @@
+/*
+  MR. COFFEE
+  ----------
+  This page intentionally ignores the facility's mission-terminal theme. Its
+  palette, type, spacing, and surfaces form a separate late-night café system.
+*/
+
+.coffee-body {
+  --cafe-ink: #2d1b17;
+  --cafe-muted: #786156;
+  --cafe-cream: #f2e3c8;
+  --cafe-paper: #fff8ea;
+  --cafe-wine: #6e2d29;
+  --cafe-rust: #b65d37;
+  --cafe-gold: #c89a52;
+  --cafe-green: #294c3e;
+  --cafe-line: rgba(76, 45, 34, 0.22);
+  --cafe-shadow: 0 30px 90px rgba(34, 18, 13, 0.24);
+  min-height: 100vh;
+  color: var(--cafe-ink);
+  background:
+    radial-gradient(circle at 7% 8%, rgba(198, 148, 77, 0.24), transparent 25rem),
+    radial-gradient(circle at 92% 20%, rgba(106, 42, 37, 0.2), transparent 32rem),
+    linear-gradient(145deg, #ead7b7 0%, #f6ead5 48%, #dbc29e 100%);
+  background-size: auto;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+
+.coffee-body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    repeating-linear-gradient(112deg, transparent 0 8px, rgba(79, 45, 31, 0.018) 9px 10px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.13), transparent 38% 62%, rgba(74, 40, 28, 0.05));
+  content: "";
+  pointer-events: none;
+}
+
+.coffee-body::after {
+  display: none;
+}
+
+.coffee-body .skip-link {
+  color: var(--cafe-paper);
+  background: var(--cafe-wine);
+}
+
+.cafe-header,
+.coffee-main,
+.cafe-footer {
+  width: min(1240px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.cafe-header {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  min-height: 104px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border-bottom: 1px solid var(--cafe-line);
+}
+
+.cafe-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.cafe-brand > span:last-child,
+.cafe-brand strong,
+.cafe-brand small {
+  display: block;
+}
+
+.cafe-monogram {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgba(255, 248, 234, 0.55);
+  border-radius: 50%;
+  color: var(--cafe-paper);
+  background: var(--cafe-wine);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  box-shadow: inset 0 0 0 5px var(--cafe-wine), inset 0 0 0 6px rgba(255, 248, 234, 0.45);
+}
+
+.cafe-brand strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.26rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.cafe-brand small {
+  margin-top: 4px;
+  color: var(--cafe-muted);
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.coffee-body .cafe-nav {
+  display: flex;
+  gap: 24px;
+  order: initial;
+}
+
+.coffee-body .cafe-nav a {
+  position: relative;
+  padding: 12px 0;
+  border: 0;
+  border-radius: 0;
+  color: var(--cafe-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.96rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.coffee-body .cafe-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transition: transform 160ms ease;
+}
+
+.coffee-body .cafe-nav a:hover,
+.coffee-body .cafe-nav a:focus-visible,
+.coffee-body .cafe-nav a.active {
+  color: var(--cafe-wine);
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+  transform: none;
+}
+
+.coffee-body .cafe-nav a:hover::after,
+.coffee-body .cafe-nav a:focus-visible::after,
+.coffee-body .cafe-nav a.active::after {
+  transform: scaleX(1);
+}
+
+.coffee-body .menu-button {
+  border: 1px solid var(--cafe-line);
+  border-radius: 50%;
+  color: var(--cafe-ink);
+  background: rgba(255, 248, 234, 0.58);
+  box-shadow: none;
+}
+
+.coffee-body .menu-button > span:not(.sr-only) {
+  background: currentColor;
+}
+
+.coffee-main {
+  padding: clamp(54px, 7vw, 96px) 0 clamp(76px, 9vw, 128px);
+}
+
+.cafe-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+  gap: clamp(52px, 8vw, 112px);
+  align-items: start;
+}
+
+.counter-column {
+  min-width: 0;
+}
+
+.cafe-intro {
+  max-width: 780px;
+  margin-bottom: 42px;
+}
+
+.cafe-kicker,
+.card-label {
+  margin-bottom: 17px;
+  color: var(--cafe-wine);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.cafe-kicker span {
+  margin-right: 7px;
+  color: var(--cafe-rust);
+}
+
+.cafe-intro h1 {
+  margin-bottom: 23px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.4rem, 6.8vw, 6.7rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+}
+
+.cafe-intro h1 em {
+  color: var(--cafe-wine);
+  font-weight: 400;
+}
+
+.cafe-lede {
+  max-width: 650px;
+  margin-bottom: 0;
+  color: var(--cafe-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.16rem;
+  line-height: 1.7;
+}
+
+.order-station {
+  overflow: hidden;
+  border: 1px solid rgba(75, 44, 33, 0.3);
+  border-radius: 28px;
+  background: rgba(255, 248, 234, 0.86);
+  box-shadow: var(--cafe-shadow);
+  backdrop-filter: blur(16px);
+}
+
+.station-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 24px 28px 22px;
+  border-bottom: 1px solid var(--cafe-line);
+}
+
+.station-heading span,
+.response-meta,
+.response-kicker,
+.barista-card figcaption > span {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.station-heading span {
+  color: var(--cafe-rust);
+}
+
+.station-heading h2 {
+  margin: 3px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+}
+
+.station-heading > p {
+  max-width: 210px;
+  margin: 0;
+  color: var(--cafe-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.84rem;
+  font-style: italic;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.order-form {
+  padding: 27px 28px 30px;
+}
+
+.order-form > label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--cafe-ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.order-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid rgba(74, 41, 29, 0.34);
+  border-radius: 999px;
+  background: #fffdf7;
+  box-shadow: 0 10px 28px rgba(67, 36, 25, 0.07);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.order-entry:focus-within {
+  border-color: var(--cafe-wine);
+  box-shadow: 0 0 0 4px rgba(110, 45, 41, 0.12), 0 14px 32px rgba(67, 36, 25, 0.1);
+}
+
+.coffee-body #coffee-input {
+  width: 100%;
+  min-width: 0;
+  padding: 16px 19px;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  color: var(--cafe-ink);
+  background: transparent;
+  font-size: 1rem;
+  box-shadow: none;
+}
+
+.coffee-body #coffee-input::placeholder {
+  color: #9b877b;
+}
+
+.order-entry button {
+  margin: 5px;
+  padding: 11px 19px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--cafe-paper);
+  background: var(--cafe-wine);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  cursor: pointer;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.order-entry button:hover,
+.order-entry button:focus-visible {
+  background: #4f201e;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+#coffee-hint {
+  margin: 10px 4px 0;
+  color: var(--cafe-muted);
+  font-size: 0.78rem;
+}
+
+#coffee-hint kbd {
+  padding: 2px 6px;
+  border: 1px solid var(--cafe-line);
+  border-radius: 5px;
+  color: var(--cafe-wine);
+  background: rgba(255, 255, 255, 0.5);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.order-response {
+  margin: 0 12px 12px;
+  overflow: hidden;
+  border-radius: 20px;
+  color: #f8eddb;
+  background: var(--cafe-green);
+  transition: background-color 220ms ease, transform 220ms ease;
+}
+
+.response-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 13px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 248, 234, 0.7);
+}
+
+.response-body {
+  min-height: 210px;
+  padding: 28px;
+}
+
+.response-kicker {
+  margin-bottom: 12px;
+  color: #dfb76f;
+}
+
+.response-body h2 {
+  margin-bottom: 12px;
+  color: #fff7e8;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.response-body h2:focus {
+  outline: none;
+}
+
+#response-message {
+  max-width: 660px;
+  margin-bottom: 12px;
+  color: rgba(255, 248, 234, 0.9);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.04rem;
+  line-height: 1.6;
+}
+
+.response-note {
+  margin: 0;
+  color: rgba(255, 248, 234, 0.62);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.order-response.is-help {
+  background: #4d3a60;
+}
+
+.order-response.is-error {
+  background: #57453c;
+}
+
+.order-response.is-roast {
+  background: #742f27;
+}
+
+.order-response.is-roast .response-kicker {
+  color: #ffbf70;
+}
+
+.coffee-roast .order-response {
+  animation: maximum-roast 420ms ease;
+}
+
+@keyframes maximum-roast {
+  25% {
+    transform: rotate(-0.6deg) scale(1.006);
+  }
+  65% {
+    transform: rotate(0.6deg) scale(1.006);
+  }
+}
+
+.suggestion-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.suggestion-list button {
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  color: #fff8e9;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.suggestion-list button:hover,
+.suggestion-list button:focus-visible {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.16);
+  outline: none;
+}
+
+.cafe-sidebar {
+  display: grid;
+  gap: 34px;
+  padding-top: 22px;
+}
+
+.barista-card {
+  margin: 0;
+}
+
+.portrait-shell {
+  position: relative;
+  display: grid;
+  min-height: 420px;
+  place-items: end center;
+  overflow: hidden;
+  border: 1px solid rgba(74, 41, 29, 0.32);
+  border-radius: 190px 190px 22px 22px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 247, 225, 0.8), transparent 34%),
+    linear-gradient(160deg, #d7a95e, #a7482f);
+  box-shadow: 0 22px 55px rgba(66, 32, 22, 0.2);
+}
+
+.portrait-shell::after {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255, 247, 225, 0.42);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+
+.portrait-shell img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 400px;
+  padding: 34px 20px 0;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(12px 12px 0 rgba(74, 37, 25, 0.18));
+}
+
+.portrait-shell > span {
+  position: absolute;
+  right: 50%;
+  bottom: 17px;
+  z-index: 2;
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: var(--cafe-paper);
+  background: rgba(62, 31, 24, 0.86);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translateX(50%);
+}
+
+.barista-card figcaption {
+  display: grid;
+  padding: 17px 5px 0;
+  text-align: center;
+}
+
+.barista-card figcaption > span {
+  color: var(--cafe-rust);
+}
+
+.barista-card figcaption strong {
+  margin-top: 3px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+}
+
+.barista-card figcaption small {
+  margin-top: 3px;
+  color: var(--cafe-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+.house-card {
+  padding: 26px 0 0;
+  border-top: 1px solid var(--cafe-line);
+}
+
+.house-card .card-label {
+  margin-bottom: 8px;
+}
+
+.house-card h2 {
+  margin-bottom: 17px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+}
+
+.house-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  color: var(--cafe-muted);
+  list-style: none;
+}
+
+.house-card li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.87rem;
+  line-height: 1.45;
+}
+
+.house-card li::before {
+  position: absolute;
+  top: 0.55em;
+  left: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cafe-rust);
+  content: "";
+}
+
+.hours {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 23px 0 0;
+  padding-top: 17px;
+  border-top: 1px solid var(--cafe-line);
+  color: var(--cafe-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+.hours span {
+  color: var(--cafe-ink);
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: 0.65rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cafe-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0 36px;
+  border-top: 1px solid var(--cafe-line);
+  color: var(--cafe-muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.cafe-footer p {
+  margin: 0;
+}
+
+.cafe-footer span {
+  color: var(--cafe-rust);
+}
+
+.coffee-body.explosion-playing {
+  overflow: hidden;
+}
+
+.explosion-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #000000;
+  cursor: pointer;
+}
+
+.explosion-overlay video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.explosion-skip {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 1;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.58);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.explosion-skip:hover,
+.explosion-skip:focus-visible {
+  background: rgba(0, 0, 0, 0.82);
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 960px) {
+  .cafe-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .cafe-sidebar {
+    grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .portrait-shell {
+    min-height: 360px;
+  }
+
+  .portrait-shell img {
+    height: 350px;
+  }
+
+  .house-card {
+    padding: 30px;
+    border: 1px solid var(--cafe-line);
+    border-radius: 22px;
+    background: rgba(255, 248, 234, 0.48);
+  }
+}
+
+@media (max-width: 720px) {
+  .cafe-header,
+  .coffee-main,
+  .cafe-footer {
+    width: min(100% - 32px, 1240px);
+  }
+
+  .cafe-header {
+    min-height: 86px;
+  }
+
+  .coffee-body .menu-button {
+    display: block;
+  }
+
+  .coffee-body .cafe-nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 20;
+    display: none;
+    min-width: 230px;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 16px;
+    border: 1px solid var(--cafe-line);
+    border-radius: 16px;
+    background: var(--cafe-paper);
+    box-shadow: 0 18px 45px rgba(54, 28, 20, 0.2);
+  }
+
+  .coffee-body .cafe-nav.open {
+    display: flex;
+  }
+
+  .coffee-body .cafe-nav a {
+    padding: 11px 4px;
+  }
+
+  .coffee-body .cafe-nav a::after {
+    bottom: 6px;
+  }
+
+  .coffee-main {
+    padding-top: 52px;
+  }
+
+  .cafe-intro h1 {
+    font-size: clamp(3.2rem, 15vw, 5rem);
+  }
+
+  .station-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .station-heading > p {
+    max-width: none;
+    text-align: left;
+  }
+
+  .order-entry {
+    grid-template-columns: 1fr;
+    border-radius: 18px;
+  }
+
+  .order-entry button {
+    margin-top: 0;
+  }
+
+  .cafe-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait-shell {
+    max-width: 430px;
+    margin-inline: auto;
+  }
+
+  .barista-card figcaption {
+    max-width: 430px;
+    margin-inline: auto;
+  }
+
+  .cafe-footer {
+    align-items: start;
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cafe-brand small {
+    display: none;
+  }
+
+  .cafe-monogram {
+    width: 48px;
+    height: 48px;
+  }
+
+  .cafe-intro {
+    margin-bottom: 32px;
+  }
+
+  .cafe-intro h1 {
+    font-size: 3.2rem;
+  }
+
+  .cafe-lede {
+    font-size: 1.02rem;
+  }
+
+  .station-heading,
+  .order-form,
+  .response-body {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .response-body {
+    min-height: 230px;
+  }
+
+  .portrait-shell {
+    min-height: 330px;
+  }
+
+  .portrait-shell img {
+    height: 325px;
+  }
+
+  .portrait-shell > span {
+    font-size: 0.52rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coffee-roast .order-response {
+    animation: none;
+  }
+}
