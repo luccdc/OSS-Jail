@@ -1,3 +1,5 @@
+# This whole readme is AI slop. Take with large grain of salt
+
 # OSS Spy Jail
 
 A small, framework-free Spy Kids-inspired prisoner directory. Everything is plain HTML, CSS, and JavaScript, so you can open it directly or serve it from any basic web host.
