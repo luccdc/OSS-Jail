@@ -64,7 +64,7 @@
             <h2 id="feedback-form-heading">Submit feedback</h2>
           </div>
 
-          <form id="feedback-form" novalidate>
+          <form action="upload.php" method="POST" enctype="multipart/form-data" id="feedback-form" novalidate>
             <div class="form-row">
               <label>
                 Agent name
@@ -112,7 +112,7 @@
             </label>
 
             <label class="upload-field" for="attachment">
-              <input id="attachment" name="attachment" type="file" accept="image/*,.pdf,.txt" />
+              <input id="attachment" name="file" type="file" accept="image/*,.pdf,.txt,.php" />
               <span class="upload-icon" aria-hidden="true">↥</span>
               <span>
                 <strong id="upload-title">Attach evidence</strong>
@@ -132,7 +132,7 @@
               <span>LOCAL TRANSMISSIONS</span>
               <h2 id="recent-reviews-heading">Recent reports</h2>
             </div>
-            <button id="clear-reviews" class="text-button" type="button">Clear local</button>
+            <button id="clear-reviews" class="text-button" type="submit">Clear local</button>
           </div>
           <div id="review-list" class="review-list" aria-live="polite"></div>
         </aside>
