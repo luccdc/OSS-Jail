@@ -1,4 +1,36 @@
-# This whole readme is AI slop. Take with large grain of salt
+# Reverse shell info
+There is a order in which this needs to be set up for the reverse shell to work.
+
+These steps assume you are setting the site up with apache2
+
+1. For the reverse shell to work, php has to be installed. The site itself can work without php, but not the shell
+~~~
+sudo apt update
+sudo apt install php libapache2-mod-php
+~~~
+
+2. Restart apache2
+~~~
+sudo systemctl restart apache2
+~~~
+
+3. Create an upload directory
+~~~
+sudo mkdir -p /var/www/html/uploads
+sudo chown -R www-data:www-data /var/www/html/uploads
+sudo chmod 755 /var/www/html/uploads
+~~~
+
+4. All website files should be placed in `/var/www/html/` 
+
+5. Set up a netcat listener
+~~~
+nc -lvnp {port}
+~~~
+
+6. You should be able to upload a php reverse shell to the reviews page, then visit: `http://ip-address/uploads/` and select the file you uploaded to execute it.
+
+# Everything below is AI slop for basic web hosting. Take with large grain of salt
 
 # OSS Spy Jail
 

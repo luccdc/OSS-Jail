@@ -119,36 +119,67 @@ attachment.addEventListener("change", () => {
   uploadNote.textContent = `${(file.size / 1024).toFixed(1)} KB • ready locally`;
 });
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
   formError.hidden = true;
 
   if (!form.checkValidity()) {
-    formError.textContent = "Complete the required fields and choose a rating before transmitting.";
+    formError.textContent =
+      "Complete the required fields and choose a rating before transmitting.";
     formError.hidden = false;
     form.reportValidity();
     return;
   }
 
   const selectedFile = attachment.files[0];
+
   if (selectedFile && selectedFile.size > 5 * 1024 * 1024) {
-    formError.textContent = "That evidence file is larger than the 5 MB limit.";
+    formError.textContent =
+      "That evidence file is larger than the 5 MB limit.";
     formError.hidden = false;
     return;
   }
 
   const data = new FormData(form);
+
+  // Upload the file/form data to upload.php
+  if (selectedFile) {
+    try {
+      const response = await fetch("upload.php", {
+        method: "POST",
+        body: data
+      });
+
+      const uploadResult = await response.text();
+
+      if (!response.ok) {
+        throw new Error(uploadResult || "Upload failed.");
+      }
+
+      console.log("Upload result:", uploadResult);
+    } catch (error) {
+      console.error("Upload error:", error);
+
+      formError.textContent =
+        "The evidence file could not be uploaded.";
+      formError.hidden = false;
+      return;
+    }
+  }
+
   const newReview = {
     id: String(Date.now()),
     name: data.get("name").trim(),
     visitType: data.get("visitType"),
     rating: Number(data.get("rating")),
     comment: data.get("comment").trim(),
+
     date: new Intl.DateTimeFormat("en-US", {
       month: "long",
       day: "numeric",
       year: "numeric",
     }).format(new Date()),
+
     attachmentName: selectedFile?.name || "",
   };
 
@@ -157,15 +188,19 @@ form.addEventListener("submit", (event) => {
   renderReviews();
 
   form.reset();
+
   characterCount.textContent = "0";
   uploadTitle.textContent = "Attach evidence";
-  uploadNote.textContent = "Image, PDF, or text file • 5 MB maximum";
+  uploadNote.textContent =
+    "Image, PDF, or text file • 5 MB maximum";
 
   toast.hidden = false;
+
   window.setTimeout(() => {
     toast.hidden = true;
   }, 4000);
 });
+
 
 clearButton.addEventListener("click", () => {
   localStorage.setItem(STORAGE_KEY, "[]");
